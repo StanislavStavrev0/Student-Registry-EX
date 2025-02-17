@@ -40,6 +40,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    
+    - name: install NPM
+      run: npm install
+    - name: Run NPM tests
+      run: npm run test
     - name: Start NPM Application
       run: npm run start &   
