@@ -46,3 +46,14 @@ jobs:
       run: npm run test
     - name: Start NPM Application
       run: npm run start &   
+
+ 
+  Deploy_App_To_Render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          wait-for-success: true
