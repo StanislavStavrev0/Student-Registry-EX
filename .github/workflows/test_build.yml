@@ -50,6 +50,7 @@ jobs:
  
   Deploy_App_To_Render:
     runs-on: ubuntu-latest
+    needs: Start_App
     steps:
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
