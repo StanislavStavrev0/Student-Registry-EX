@@ -14,7 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-  
     steps:
     - name: clone the app Repository
       uses: actions/checkout@v4
@@ -27,5 +26,20 @@ jobs:
       run: npm install
     - name: Run NPM tests
       run: npm run test
+   
+
+  Start_App:
+
+    runs-on: ubuntu-latest
+    needs: build_tests
+    steps:
+    - name: clone the app Repository
+      uses: actions/checkout@v4
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
     - name: Start NPM Application
-      run: npm run start &
+      run: npm run start &   
